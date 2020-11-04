@@ -1,0 +1,24 @@
+<app-menu></app-menu>
+
+<!-- <mat-spinner></mat-spinner> -->
+
+<div class="container">
+    <div class="row">
+      <div class="col-12">
+        <app-info-covid [country]="'Canada'"></app-info-covid>
+      </div>
+      <div class="col-12 col-md-6">
+        <mat-spinner class="m-auto" *ngIf="!chuckNorrisSentence"></mat-spinner>
+        <app-info-words *ngIf="chuckNorrisSentence"
+            [title]="'Chuck Norris Words'"
+            [sentence]="chuckNorrisSentence"></app-info-words>
+      </div>
+      <div class="col-12 col-md-6">
+        <mat-spinner class="m-auto" *ngIf="!numberSentence"></mat-spinner>
+        <app-info-words *ngIf="numberSentence"
+            [title]="'Numbers'"
+            [sentence]="numberSentence"></app-info-words>
+      </div>
+    </div>
+</div>
+

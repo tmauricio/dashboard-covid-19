@@ -1,0 +1,38 @@
+<div class="spacing">
+
+    <mat-spinner class="m-auto" *ngIf="!infoCovid"></mat-spinner>
+
+    <mat-card *ngIf="infoCovid">
+        <mat-card-header>
+            <mat-card-title>Covid 19</mat-card-title>
+            <mat-card-subtitle>Status</mat-card-subtitle>
+        </mat-card-header>
+        
+        <mat-card-content>
+            
+            
+            <div class="row" ng-for="let stat of infoCovid">
+                <div class="col-4">
+                    Confirmed
+                    <mat-progress-bar mode="determinate" [color]="'warn'" value="{{stat.confirmed/100}}"></mat-progress-bar>
+                    {{stat.confirmed}}
+                </div>
+            
+                <div class="col-4">
+                    Deaths
+                    <mat-progress-bar mode="determinate" [color]="'warn'" value="{{stat.deaths/100}}"></mat-progress-bar>
+                    {{stat.deaths}}
+                </div>
+            
+                <div class="col-4">
+                    Recovered
+                    <mat-progress-bar mode="determinate" [color]="'accent'" value="{{stat.recovered/100}}"></mat-progress-bar>
+                    {{stat.recovered}}
+                </div>
+            </div>
+
+
+       </mat-card-content>
+        
+    </mat-card>
+</div>
