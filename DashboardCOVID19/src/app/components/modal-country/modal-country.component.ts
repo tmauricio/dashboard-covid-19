@@ -4,6 +4,7 @@ import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 interface Country {
   code: string;
   name: string;
+  languaje: string;
 }
 
 @Component({
@@ -16,8 +17,10 @@ export class ModalCountryComponent implements OnInit {
   selectedCountry: String;
   
   countries: Country[] = [
-    {code: 'ar', name: 'Argentina'},
-    {code: 'es', name: 'España'},
+    {code: 'ar', name: 'Argentina', languaje: 'español' },
+    {code: 'es', name: 'España',  languaje: 'español' },
+    {code: 'fr', name: 'Francia',  languaje: 'frances' },
+    {code: 'it', name: 'Italia',  languaje: 'italiano' },
   ];
 
   constructor(

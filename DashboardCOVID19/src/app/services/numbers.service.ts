@@ -11,14 +11,14 @@ export class NumbersService {
 
   constructor(public http: HttpClient) { }
 
-  getSentence(): Observable<String> {
+  getSentence(): Observable<string> {
 
     
     return this.http.get(
         'http://numbersapi.com/random/trivia',
         { responseType: 'text' }
     ).pipe(
-      tap((result: String) => {
+      tap((result: string) => {
           console.log('respuesta de servicio: ', result);
           return result;
       }),

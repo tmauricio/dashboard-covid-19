@@ -9,8 +9,9 @@ import { NumbersService } from 'src/app/services/numbers.service';
 })
 export class HomeComponent implements OnInit {
 
-  chuckNorrisSentence: String;
-  numberSentence: String;
+  chuckNorrisSentence: string;
+  numberSentence: string;
+  country: string;
 
   constructor(
     public chucknorrisService: ChucknorrisService,
@@ -24,6 +25,10 @@ export class HomeComponent implements OnInit {
     this.numbersService.getSentence().subscribe(response => {
       this.numberSentence = response;
     });
+  }
+
+  changeCountry(country: string) {
+    this.country = country;
   }
 
 }

@@ -11,15 +11,15 @@
 // zip_code: "63367"
 
 export interface GeolocationModel {
-    city: String;
-    country_code: String
-    country_name: String
-    ip: String
+    city: string;
+    country_code: string
+    country_name: string
+    ip: string
     latitude: Number
     longitude: Number
     metro_code: Number
-    region_code: String;
-    region_name: String;
-    time_zone: String;
-    zip_code: String;
+    region_code: string;
+    region_name: string;
+    time_zone: string;
+    zip_code: string;
 }

@@ -23,7 +23,6 @@ export class InfoCovidComponent implements OnInit {
   getInfoByCountry(): void {
     
     this.covidService.getInfoByCountry(this.country).subscribe((result: CovidInfoModel) => {
-      debugger
       this.infoCovid = result;
     })
   }

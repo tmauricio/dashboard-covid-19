@@ -10,7 +10,7 @@ export class ChucknorrisService {
 
   constructor(public http: HttpClient) { }
 
-  getSentence(): Observable<String> {
+  getSentence(): Observable<string> {
     return this.http.get('https://api.chucknorris.io/jokes/random').pipe(
       map((result: any) => {
           console.log('respuesta de servicio: ', result);

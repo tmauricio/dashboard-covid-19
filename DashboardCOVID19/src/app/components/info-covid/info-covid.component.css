@@ -1,0 +1,14 @@
+.div-stat {
+    border-top: 1px solid #000000;
+    padding: 10px;
+}
+
+.confirmed-title {
+    font-size: 1.1rem;
+    text-align: center;
+}
+
+.confirmed-value {
+    font-size: 1.6rem;
+    text-align: center;
+}

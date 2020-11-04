@@ -1,15 +1,16 @@
 
 export interface CovidStatsModel {
-    city: String;
+    city: string;
     confirmed: Number;
-    country: String;
+    country: string;
     deaths: Number;
-    keyId: String;
-    lastUpdate: String;
-    province: String;
+    keyId: string;
+    lastUpdate: string;
+    province: string;
     recovered: Number;
 }
 
 export interface CovidInfoModel {
     covid19Stats: [CovidStatsModel];
+    lastChecked: string;
 }

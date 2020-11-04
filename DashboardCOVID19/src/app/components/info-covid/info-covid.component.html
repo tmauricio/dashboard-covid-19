@@ -10,23 +10,25 @@
         
         <mat-card-content>
             
-            
-            <div class="row" ng-for="let stat of infoCovid">
+            <div class="row pb-2" *ngFor="let stat of infoCovid.covid19Stats">
+                <div class="col-12 div-stat">
+                    {{stat.province}} {{stat.city}} ({{stat.lastUpdate}})
+                </div>
                 <div class="col-4">
-                    Confirmed
-                    <mat-progress-bar mode="determinate" [color]="'warn'" value="{{stat.confirmed/100}}"></mat-progress-bar>
-                    {{stat.confirmed}}
+                    <div class="confirmed-title">Confirmed</div>
+                    <!-- <mat-progress-bar mode="determinate" [color]="'warn'" value="{{100}}"></mat-progress-bar> -->
+                    <div class="confirmed-value">{{stat.confirmed}}</div>
                 </div>
             
                 <div class="col-4">
                     Deaths
-                    <mat-progress-bar mode="determinate" [color]="'warn'" value="{{stat.deaths/100}}"></mat-progress-bar>
+                    <mat-progress-bar mode="determinate" [color]="'warn'" value="{{(stat.deaths*100)/stat.confirmed}}"></mat-progress-bar>
                     {{stat.deaths}}
                 </div>
             
                 <div class="col-4">
                     Recovered
-                    <mat-progress-bar mode="determinate" [color]="'accent'" value="{{stat.recovered/100}}"></mat-progress-bar>
+                    <mat-progress-bar mode="determinate" [color]="'warn'" value="{{(stat.recovered*100)/stat.confirmed}}"></mat-progress-bar>
                     {{stat.recovered}}
                 </div>
             </div>
