@@ -5,6 +5,10 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
     - node.js
     - npm
 
+## Previo a la ejecucion
+
+Se deberá correr el comando `npm install` en la carpeta raiz del proyecto
+
 ## Como ejecutar aplicación en ambiente local
 
 Ir a la carpeta raiz del proyecto y ejecutar el comando `npm run start`. Luego se abrirá automáticamente en un browser la url del sitio fucionando.
