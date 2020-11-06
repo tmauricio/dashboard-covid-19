@@ -6,7 +6,7 @@
     <mat-label>Countries</mat-label>
     <mat-select [(value)]="selectedCountry">
       <mat-option></mat-option>
-      <mat-option [value]="country.name" *ngFor="let country of countries">{{ country.name }}</mat-option>
+      <mat-option [value]="country" *ngFor="let country of countries">{{ country.name }}</mat-option>
     </mat-select>
   </mat-form-field>
 

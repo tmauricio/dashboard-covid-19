@@ -1,27 +1,23 @@
 # DashboardCOVID19
-
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 10.2.0.
 
-## Development server
+## Software necesario para la ejecución
+    - node.js
+    - npm
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+## Como ejecutar aplicación en ambiente local
 
-## Code scaffolding
+Ir a la carpeta raiz del proyecto y ejecutar el comando `npm run start`. Luego se abrirá automáticamente en un browser la url del sitio fucionando.
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+## Asunciones y Premisas
 
-## Build
+Pude verificar ni bien probé las apis de referencia que algunas de ellas tenian bloqueado el acceso desde el localhost (no tenian configurado CORS) y por mas que ponga la configuración pertinente en el header de mis llamados eso no hace nada debido a que el bloquedo también debe sacarse del lado del servidor donde están dichas apis. Así que armé un pequeño backend con node.js y express el cual utilizo básicamente de proxy para poder operar con los servicios en cuestión. Los servicios que no tenian problemas de CORS no los agregué al proxy comentado.
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+El servidor node que agregué se levanta junto con la web Angular al ejecutar el comando del punto anterior.
 
-## Running unit tests
+Al ver que toda la info que se pedía en el enunciado no me los proporcionaban las apis de referencia tuve que buscar alguna otra api que me dé el país donde estoy ejecutando la aplicación y datos de dicho pais (capital, moneda e idioma)
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+Noté que los distintos servicios de las distintas apis tenían tiempos bastante diferentes de respuesta así que el diseño del sitio lo pensé teniendo en cuenta esto poniendo en distintas cards los distintos datos con loadings individuales en cada uno para que estos se puedan ir cargando a medida que los servicios responden así de esa forma no penalizar a los servicios más rápidos.
 
-## Running end-to-end tests
+Por cuestiones de tiempo, no he realizado algunas cosas que me hubiera gustado agregar como por ej. Segurizar el sitio con SSL, y configurar todo para poder dejar una versión productiva lista para ser subida a un servidor. Y el servidor de node que armé también está algo elemental, se podría dejar un poco mas robusto para que escale en el caso de que esta app crezca.
 
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.

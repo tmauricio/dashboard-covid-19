@@ -64,7 +64,7 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
             "browserTarget": "DashboardCOVID19:build"
-          },
+        },
           "configurations": {
             "production": {
               "browserTarget": "DashboardCOVID19:build:production"

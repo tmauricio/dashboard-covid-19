@@ -1,11 +1,8 @@
 import { Component, Inject, OnInit } from '@angular/core';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { Country } from 'src/app/models/covid-info.model';
 
-interface Country {
-  code: string;
-  name: string;
-  languaje: string;
-}
+
 
 @Component({
   selector: 'app-modal-country',
@@ -14,20 +11,15 @@ interface Country {
 })
 export class ModalCountryComponent implements OnInit {
 
-  selectedCountry: String;
-  
-  countries: Country[] = [
-    {code: 'ar', name: 'Argentina', languaje: 'español' },
-    {code: 'es', name: 'España',  languaje: 'español' },
-    {code: 'fr', name: 'Francia',  languaje: 'frances' },
-    {code: 'it', name: 'Italia',  languaje: 'italiano' },
-  ];
+  selectedCountry: Country;
+  countries: string[];
 
   constructor(
     public dialogRef: MatDialogRef<ModalCountryComponent>,
-    @Inject(MAT_DIALOG_DATA) public data: Country) { }
+    @Inject(MAT_DIALOG_DATA) public data: string[]) { }
 
   ngOnInit(): void {
+    this.countries = this.data;
   }
 
   onNoClick(): void {

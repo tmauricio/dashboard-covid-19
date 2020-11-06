@@ -14,3 +14,10 @@ export interface CovidInfoModel {
     covid19Stats: [CovidStatsModel];
     lastChecked: string;
 }
+
+export interface Country {
+    name: string;
+    capital: string;
+    currencies: Array<any>;
+    languages: Array<any>;
+}

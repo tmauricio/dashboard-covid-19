@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Country } from 'src/app/models/covid-info.model';
 import { ChucknorrisService } from 'src/app/services/chucknorris.service';
 import { NumbersService } from 'src/app/services/numbers.service';
 
@@ -11,11 +12,12 @@ export class HomeComponent implements OnInit {
 
   chuckNorrisSentence: string;
   numberSentence: string;
-  country: string;
+  country: Country;
 
   constructor(
     public chucknorrisService: ChucknorrisService,
-    public numbersService: NumbersService) { }
+    public numbersService: NumbersService,
+    ) { }
 
   ngOnInit(): void {
     this.chucknorrisService.getSentence().subscribe(response => {
@@ -27,7 +29,7 @@ export class HomeComponent implements OnInit {
     });
   }
 
-  changeCountry(country: string) {
+  changeCountry(country: Country) {
     this.country = country;
   }
 

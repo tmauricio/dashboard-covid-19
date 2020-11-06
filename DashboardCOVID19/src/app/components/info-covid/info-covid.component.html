@@ -1,10 +1,13 @@
 <div class="spacing">
 
-    <mat-spinner class="m-auto" *ngIf="!infoCovid"></mat-spinner>
+    <div class="pt-4" *ngIf="loading && !infoCovid"><mat-spinner class="m-auto"></mat-spinner></div>
 
-    <mat-card *ngIf="infoCovid">
+    <mat-card *ngIf="!loading && !infoCovid">
+        No se encontraron datos para el pais elegido
+    </mat-card>
+    <mat-card *ngIf="!loading && infoCovid">
         <mat-card-header>
-            <mat-card-title>Covid 19</mat-card-title>
+            <mat-card-title>Covid 19 ({{country.name}})</mat-card-title>
             <mat-card-subtitle>Status</mat-card-subtitle>
         </mat-card-header>
         
@@ -12,11 +15,10 @@
             
             <div class="row pb-2" *ngFor="let stat of infoCovid.covid19Stats">
                 <div class="col-12 div-stat">
-                    {{stat.province}} {{stat.city}} ({{stat.lastUpdate}})
+                    {{stat.province}} {{stat.city}} ({{stat.lastUpdate.substr(0, 10)}})
                 </div>
                 <div class="col-4">
                     <div class="confirmed-title">Confirmed</div>
-                    <!-- <mat-progress-bar mode="determinate" [color]="'warn'" value="{{100}}"></mat-progress-bar> -->
                     <div class="confirmed-value">{{stat.confirmed}}</div>
                 </div>
             

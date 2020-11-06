@@ -1,26 +1,60 @@
-<app-menu  (changeCountryEvent)='changeCountry($event)'></app-menu>
-
-<!-- <mat-spinner></mat-spinner> -->
+<app-menu (changeCountryEvent)='changeCountry($event)'></app-menu>
 
 <div class="container">
     <div class="row">
-      <div class="col-12">
-        <ng-container *ngIf="country">
-          <app-info-covid [country]="country"></app-info-covid>
-        </ng-container>
-      </div>
       <div class="col-12 col-md-6">
-        <mat-spinner class="m-auto" *ngIf="!chuckNorrisSentence"></mat-spinner>
+        <div class="pt-4" *ngIf="!chuckNorrisSentence"><mat-spinner class="m-auto"></mat-spinner></div>
         <app-info-words *ngIf="chuckNorrisSentence"
             [title]="'Chuck Norris Words'"
             [sentence]="chuckNorrisSentence"></app-info-words>
       </div>
+
       <div class="col-12 col-md-6">
-        <mat-spinner class="m-auto" *ngIf="!numberSentence"></mat-spinner>
+        <div class="pt-4" *ngIf="!numberSentence"><mat-spinner class="m-auto"></mat-spinner></div>
         <app-info-words *ngIf="numberSentence"
             [title]="'Numbers'"
             [sentence]="numberSentence"></app-info-words>
       </div>
+    
+      <ng-container *ngIf="country">
+        <div class="col-12 col-md-4" >
+          <div class="spacing">
+            <mat-card>
+              <div class="row">
+                <div class="col-6 text-right">
+                  Capital:
+                </div>
+                <div class="col-6">
+                  {{country.capital}}
+                </div>
+                <div class="col-6 text-right">
+                  Moneda:
+                </div>
+                <div class="col-6">
+                  <div *ngFor="let currency of country.currency">
+                    {{currency.name}} ({{currency.symbol}})
+                  </div>  
+                </div>
+                <div class="col-6 text-right">
+                  Lenguajes:
+                </div>
+                <div class="col-6">
+                  <div *ngFor="let language of country.languages">
+                    {{language.name}}
+                  </div>
+                </div>
+              </div>
+            </mat-card>
+          </div>
+        </div>
+      </ng-container>
+
+      <div class="col-12 col-md-8">
+        <ng-container *ngIf="country">
+          <app-info-covid [country]="country"></app-info-covid>
+        </ng-container>
+      </div>
+
     </div>
 </div>
 

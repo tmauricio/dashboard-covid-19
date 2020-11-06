@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { CovidInfoModel } from 'src/app/models/covid-info.model';
+import { Country, CovidInfoModel } from 'src/app/models/covid-info.model';
 import { CovidService } from 'src/app/services/covid.service';
 import { GeoipService } from 'src/app/services/geoip.service';
 
@@ -11,7 +11,8 @@ import { GeoipService } from 'src/app/services/geoip.service';
 export class InfoCovidComponent implements OnInit {
   
   @Input()
-  country: String;
+  country: Country;
+  loading: boolean;
   infoCovid: CovidInfoModel;
 
   constructor(public covidService: CovidService) { }
@@ -20,10 +21,17 @@ export class InfoCovidComponent implements OnInit {
     this.getInfoByCountry();
   }
 
+  ngOnChanges(): void {
+    this.getInfoByCountry();
+  }
+
   getInfoByCountry(): void {
-    
-    this.covidService.getInfoByCountry(this.country).subscribe((result: CovidInfoModel) => {
+    this.loading = true;
+    this.infoCovid = null;
+    this.covidService.getInfoByCountry(this.country.name).subscribe((result: CovidInfoModel) => {
       this.infoCovid = result;
+      this.loading = false;
     })
   }
+
 }
