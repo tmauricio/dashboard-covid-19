@@ -7,7 +7,7 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 
 ## Previo a la ejecucion
 
-Se deberá correr el comando `npm install` en la carpeta raiz del proyecto
+Se deberá correr el comando `npm install` en la carpeta raiz del proyecto y luego correr el mismo comando dentro de la carpeta 'server'
 
 ## Como ejecutar aplicación en ambiente local
 
